@@ -1,0 +1,206 @@
+@import "tailwindcss";
+
+/*---
+Themes & Keyframes
+--*/
+
+@theme {
+  --color-border: hsla(var(--border));
+  --color-background: hsla(var(--background))
+  --color-foreground: hsla(var(--foreground))
+  --color-primary: hsla(var(--primary))
+  --color-primary-foreground: hsla(var(--primary-foreground))
+  --color-secondary-color: hsla(var(--secondary-color))
+  --color-tertiary-color: hsla(var(--tertiary-color))
+  --color-card: hsla(var(--card))
+
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-pulse-subtle: pulse-subtle 4s ease-in-out infinite;
+  --animate-fade-in: fade-in 0.7s ease-out forwards;
+  --animate-fade-in-delay-1: fade-in 0.7s ease-out 0.2s forwards;
+  --animate-fade-in-delay-2: fade-in 0.7s ease-out 0.4s forwards;
+  --animate-fade-in-delay-3: fade-in 0.7s ease-out 0.6s forwards;
+  --animate-fade-in-delay-4: fade-in 0.7s ease-out 0.8s forwards;
+
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+  @keyframes pulse-subtle {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.8;
+    }
+  }
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+/*--
+Base Styles
+--*/
+@layer base{
+  :root {
+      --background:231, 54%, 9%; 
+      --border: 0, 0%, 100%;
+      --primary:  0, 0%, 100%;
+      --primary-foreground:  0, 0%, 100%;
+      --secondary-color: 329, 100%, 77%;
+      --tertiary-color: 230, 100%, 80%
+  }
+
+  .dark{
+      --background: 20, 5%, 89%;
+      --border: 0, 0%, 100%;
+      --primary:  0, 0%, 100%;
+      --primary-foreground:  0, 0%, 100%;
+
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html{
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: hsla(var(--background));
+    color: hsla(var(--primary-foreground));
+    transition: background-color 0.3s, color 0.3s;
+    font-family: 'Roboto','sans-serif';
+  }
+}
+
+/*---
+Utilities
+---*/
+
+@utility container{
+  margin-inline:auto;
+  padding-inline: 2rem;
+
+  @media (width>=640px){
+    min-width: 640px;
+  }
+  @media (width>=768px){
+    min-width: 768px;
+  }
+  @media (width>=1024px){
+    min-width: 1024px;
+  }
+}
+
+@utility primary-button{
+  @apply px-6 py-2 rounded-full
+  transition-all font-semibold duration-300 hover:shadow-[0_0_10px_rgba(139,92,246,0.5)];
+  background-color:#E2246C;
+  color: white;
+}
+
+@utility primary-button-2{
+  @apply px-6 py-2 rounded-full font-medium
+  transition-all duration-300 hover:shadow-[0_0_10px_rgba(139,92,246,0.5)]
+  hover:scale-105 active:scale-95;
+  background-color:hsla(var(--primary-foreground));
+  color: hsla(var(--background));
+}
+
+@utility secondary-color{
+  color: hsla(var(--secondary-color));
+}
+
+@utility tertiary-color{
+  color: hsla(var(--tertiary-color));
+}
+
+@utility bg-tertiary{
+  background-color: hsla(var(--tertiary-color));
+}
+
+@utility bg-tertiary-light{
+  background-color: hsla(var(--tertiary-color), 0.1);
+}
+
+@utility text-glow{
+  @apply relative;
+  text-shadow: 0 0 10px rgba(167,139,250,0.5);
+}
+
+@utility card-hover{
+  @apply transition-transform duration-300 hover:scale-[1.02] hover:shadow-lg;
+}
+
+@utility nav-hover{
+  @apply transition-transform;
+  color: hsla(var(--tertiary-color));
+}
+
+@utility gradient-border{
+  @apply relative rounded-md;
+  background: linear-gradient(to right,hsla(var(--primary)),hsla(var(--primary)));
+  background-clip: padding-box;
+  border: 2px solid transparent;
+}
+
+@utility primary-color{
+  color: hsla(var(--background));
+}
+
+/*--
+Typography
+--*/
+@font-face {
+  font-family: "SantosDumont";
+  src: url("./assets/fonts/SantosDumont-2nZd.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.inflate-font {
+  font-family: "SantosDumont", sans-serif;
+    font-size: clamp(2.5rem, 9vw, 7rem);
+
+}
+
+.homepage-title-font{
+  font-family: "Playfair Display",serif;
+  font-size: clamp(2.5rem, 6vw, 9rem);
+}
+
+.title-font{
+  font-family: "Monomaniac One",serif;
+  font-size: clamp(2.5rem, 10vw, 9rem);
+}
+
+.secondary-font{
+    font-family: "Monomaniac One", sans-serif;
+}
+
+.tertiary-font{
+    font-family: "Kode Mono", sans-serif;
+}
+
+#root {
+  max-width:100%;
+  margin:0 auto;
+  padding: 0;
+  text-align: center;
+}
