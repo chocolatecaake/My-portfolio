@@ -1,7 +1,7 @@
 import React from "react";
 import thumbnail from "../../assets/imgs/janPics/janThumbnail.png";
 import home from "../../assets/imgs/janPics/Desktop.png";
-import productList from "../../assets/imgs/janPics/Product List.png";
+import productList from "../../assets/imgs/janPics/productlist.png";
 import product from "../../assets/imgs/janPics/product.png";
 import cart from "../../assets/imgs/janPics/cart.png";
 
