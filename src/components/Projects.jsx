@@ -16,6 +16,26 @@ const badgeColors = {
 
 const projects = [
   {
+    title: "JAN",
+    slug: "jan",
+    figma:
+      "https://www.figma.com/design/mwiP3znj8HPL7oW0ufmOR9/E-Commerce-website?node-id=3-648&t=KZNWgRJ823Xts7WS-1",
+    description:
+      "A modern responsive storefront designed to simplify skincare discovery and improve product browsing clarity.",
+    badges: [
+      { label: "ReactJS", category: "WebDev" },
+      { label: "CSS", category: "WebDev" },
+    ],
+  },
+  {
+    title: "Community Portal ",
+    description:
+      "The landing page for a website to connect businesses and individuals in a community.",
+    slug: "landingDesign",
+    link: "kalm",
+    badges: [{ label: "Figma", category: "WebDev" }],
+  },
+  {
     title: "KALM.",
     description:
       "An automated scheduling application designed to reduce academic stress and improve work-life balance for university students.",
@@ -41,29 +61,6 @@ const projects = [
       { label: "CSS", category: "WebDev" },
       { label: "JavaScript", category: "Programming" },
       { label: "NodeJS", category: "WebDev" },
-    ],
-  },
-  {
-    title: "JAN",
-    slug: "jan",
-    figma:
-      "https://www.figma.com/design/mwiP3znj8HPL7oW0ufmOR9/E-Commerce-website?node-id=3-648&t=KZNWgRJ823Xts7WS-1",
-    description:
-      "A modern responsive storefront designed to simplify skincare discovery and improve product browsing clarity.",
-    badges: [
-      { label: "ReactJS", category: "WebDev" },
-      { label: "CSS", category: "WebDev" },
-    ],
-  },
-  {
-    title: "Bus Seating Plan Allocation ",
-    description:
-      "A bus seating plan allocation system that efficiently manages seat assignments.",
-    link: "kalm",
-    badges: [
-      { label: "C++", category: "Programming" },
-      { label: "OOP", category: "Programming" },
-      { label: "Procedural Programming", category: "Programming" },
     ],
   },
   {
@@ -120,6 +117,7 @@ export const Projects = () => {
                         <GithubIcon />
                       </a>
                     )}
+
                     {project.insta && (
                       <a
                         href={project.insta}
