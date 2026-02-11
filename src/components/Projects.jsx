@@ -1,4 +1,10 @@
-import { GithubIcon, Instagram, LucidePanelRightOpen } from "lucide-react";
+import {
+  GithubIcon,
+  Instagram,
+  LucidePanelRightOpen,
+  Figma,
+} from "lucide-react";
+import { Link } from "react-router-dom";
 
 const badgeColors = {
   WebDev: "#00FFF6",
@@ -38,14 +44,15 @@ const projects = [
     ],
   },
   {
-    title: "Inventory Forecast ",
+    title: "JAN",
+    slug: "jan",
+    figma:
+      "https://www.figma.com/design/mwiP3znj8HPL7oW0ufmOR9/E-Commerce-website?node-id=3-648&t=KZNWgRJ823Xts7WS-1",
     description:
-      "Used machine learning and seasonal data to predict inventory needs and optimize stock.",
-    link: "kalm",
+      "A modern responsive storefront designed to simplify skincare discovery and improve product browsing clarity.",
     badges: [
-      { label: "AI", category: "AI" },
-      { label: "Machine Learning", category: "AI" },
-      { label: "Python", category: "Programming" },
+      { label: "ReactJS", category: "WebDev" },
+      { label: "CSS", category: "WebDev" },
     ],
   },
   {
@@ -97,41 +104,48 @@ export const Projects = () => {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {projects.map((project, idx) => {
-            return (
-              <div
-                key={idx}
-                className="bg-tertiary-light p-6 py-8 rounded-xl flex flex-col gap-3 card-hover h-full space-y-6"
-              >
+            const CardContent = (
+              <div className="bg-tertiary-light p-6 py-8 rounded-xl flex flex-col gap-3 card-hover h-full space-y-6">
                 <div className="flex items-center justify-between">
                   <div className="text-left secondary-font text-lg uppercase">
                     {project.title}
                   </div>
                   <div className="flex gap-3">
-                    <div>
-                      {project.gitlink ? (
-                        <a href={project.gitlink} target="_blank">
-                          <GithubIcon />
-                        </a>
-                      ) : (
-                        ""
-                      )}
-                    </div>
-                    <div>
-                      {project.insta ? (
-                        <a href={project.insta} target="_blank">
-                          <Instagram />
-                        </a>
-                      ) : (
-                        ""
-                      )}
-                    </div>
+                    {project.gitlink && (
+                      <a
+                        href={project.gitlink}
+                        target="_blank"
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        <GithubIcon />
+                      </a>
+                    )}
+                    {project.insta && (
+                      <a
+                        href={project.insta}
+                        target="_blank"
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        <Instagram />
+                      </a>
+                    )}
+                    {project.figma && (
+                      <a
+                        href={project.figma}
+                        target="_blank"
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        <Figma />
+                      </a>
+                    )}
                   </div>
                 </div>
+
                 <div className="flex gap-2 flex-wrap">
                   {project.badges.map((badge, i) => (
                     <span
                       key={i}
-                      className="px-3 py-1 font-semibold rounded-full bg-white/10 text-white text-sm"
+                      className="px-3 py-1 font-semibold rounded-full text-sm"
                       style={{
                         backgroundColor: badgeColors[badge.category] + "20",
                         color: badgeColors[badge.category],
@@ -143,10 +157,19 @@ export const Projects = () => {
                 </div>
 
                 <div className="text-left">{project.description}</div>
-                {/*<a className="primary-button-2 mt-auto w-full" href="#contact">
-                  Learn More
-                </a>*/}
               </div>
+            );
+
+            return project.slug ? (
+              <Link
+                key={idx}
+                to={`/projects/${project.slug}`}
+                className="block h-full"
+              >
+                {CardContent}
+              </Link>
+            ) : (
+              <div key={idx}>{CardContent}</div>
             );
           })}
         </div>
