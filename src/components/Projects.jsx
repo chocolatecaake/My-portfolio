@@ -5,6 +5,9 @@ import {
   Figma,
 } from "lucide-react";
 import { Link } from "react-router-dom";
+import travelSite from "../assets/imgs/projectPics/travelSite.png";
+import communitySite from "../assets/imgs/projectPics/communitySite.png";
+import janSite from "../assets/imgs/projectPics/janSite.png";
 
 const badgeColors = {
   WebDev: "#00FFF6",
@@ -18,6 +21,7 @@ const projects = [
   {
     title: "JAN",
     slug: "jan",
+    img: janSite,
     figma:
       "https://www.figma.com/design/mwiP3znj8HPL7oW0ufmOR9/E-Commerce-website?node-id=3-648&t=KZNWgRJ823Xts7WS-1",
     description:
@@ -29,11 +33,25 @@ const projects = [
   },
   {
     title: "Community Portal ",
+    img: communitySite,
     description:
       "The landing page for a website to connect businesses and individuals in a community.",
     slug: "landingDesign",
     link: "kalm",
     badges: [{ label: "Figma", category: "WebDev" }],
+  },
+  {
+    title: "Travel Site",
+    description:
+      "A modern landing page designed for a travel site, inspired by minimal and eye-catching visuals",
+    link: "kalm",
+    img: travelSite,
+    externalLink: "https://travelsrilanka.vercel.app/",
+    badges: [
+      { label: "Figma", category: "WebDev" },
+      { label: "ReactJS", category: "WebDev" },
+      { label: "TailwindCSS", category: "WebDev" },
+    ],
   },
   {
     title: "KALM.",
@@ -76,18 +94,7 @@ const projects = [
       { label: "Python", category: "Programming" },
     ],
   },
-  {
-    title: "Travel Site",
-    description:
-      "A modern landing page designed for a travel site, inspired by minimal and eye-catching visuals",
-    link: "kalm",
-    externalLink: "https://travelsrilanka.vercel.app/",
-    badges: [
-      { label: "Figma", category: "WebDev" },
-      { label: "ReactJS", category: "WebDev" },
-      { label: "TailwindCSS", category: "WebDev" },
-    ],
-  },
+
   // {
   //   title: "BOB",
   //   description:
@@ -150,6 +157,7 @@ export const Projects = () => {
                     )}
                   </div>
                 </div>
+                <img src={project.img} className="rounded-xl" />
 
                 <div className="flex gap-2 flex-wrap">
                   {project.badges.map((badge, i) => (
@@ -169,31 +177,33 @@ export const Projects = () => {
                 <div className="text-left">{project.description}</div>
               </div>
             );
+            if (project.externalLink) {
+              return (
+                <a
+                  key={idx}
+                  href={project.externalLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block h-full"
+                >
+                  {CardContent}
+                </a>
+              );
+            }
 
-            return project.externalLink ? (
-              <Link
-                key={idx}
-                to={project.externalLink}
-                target="blank"
-                className="block h-full"
-              >
-                {CardContent}
-              </Link>
-            ) : (
-              <div key={idx}>{CardContent}</div>
-            );
+            if (project.slug) {
+              return (
+                <Link
+                  key={idx}
+                  to={`/projects/${project.slug}`}
+                  className="block h-full"
+                >
+                  {CardContent}
+                </Link>
+              );
+            }
 
-            return project.slug ? (
-              <Link
-                key={idx}
-                to={`/projects/${project.slug}`}
-                className="block h-full"
-              >
-                {CardContent}
-              </Link>
-            ) : (
-              <div key={idx}>{CardContent}</div>
-            );
+            return <div key={idx}>{CardContent}</div>;
           })}
         </div>
       </div>
