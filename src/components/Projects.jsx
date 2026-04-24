@@ -77,17 +77,29 @@ const projects = [
     ],
   },
   {
-    title: "BOB",
+    title: "Travel Site",
     description:
-      "Application to manage real estate listings, allows users to upload and rent property",
+      "A modern landing page designed for a travel site, inspired by minimal and eye-catching visuals",
     link: "kalm",
+    externalLink: "https://travelsrilanka.vercel.app/",
     badges: [
-      { label: "HTML", category: "WebDev" },
-      { label: "CSS", category: "WebDev" },
-      { label: "JavaScript", category: "Programming" },
-      { label: "JSON", category: "WebDev" },
+      { label: "Figma", category: "WebDev" },
+      { label: "ReactJS", category: "WebDev" },
+      { label: "TailwindCSS", category: "WebDev" },
     ],
   },
+  // {
+  //   title: "BOB",
+  //   description:
+  //     "Application to manage real estate listings, allows users to upload and rent property",
+  //   link: "kalm",
+  //   badges: [
+  //     { label: "HTML", category: "WebDev" },
+  //     { label: "CSS", category: "WebDev" },
+  //     { label: "JavaScript", category: "Programming" },
+  //     { label: "JSON", category: "WebDev" },
+  //   ],
+  // },
 ];
 
 export const Projects = () => {
@@ -156,6 +168,19 @@ export const Projects = () => {
 
                 <div className="text-left">{project.description}</div>
               </div>
+            );
+
+            return project.externalLink ? (
+              <Link
+                key={idx}
+                to={project.externalLink}
+                target="blank"
+                className="block h-full"
+              >
+                {CardContent}
+              </Link>
+            ) : (
+              <div key={idx}>{CardContent}</div>
             );
 
             return project.slug ? (

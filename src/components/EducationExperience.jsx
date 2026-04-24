@@ -70,7 +70,7 @@ const timeline = [
     icon: <Briefcase />,
     details: {
       company: "Beraten Software",
-      duration: "Nov 2024-Feb 2025",
+      duration: "Nov 2024-Feb 2026",
       position: "Software Analyst Intern",
       badges: [
         { label: "JavaScript", category: "Languages" },
@@ -92,14 +92,14 @@ const timeline = [
     },
   },
   {
-    year: "2025",
+    year: "2025-2026",
     title: "Beraten Software",
     role: "Software Engineer",
     iconColor: "#8AC642",
     icon: <Briefcase />,
     details: {
       company: "Beraten Software",
-      duration: "Feb 2025-Dec 2025",
+      duration: "Feb 2025-Apr 2026",
       position: "Software Engineer",
       badges: [
         { label: "JavaScript", category: "Languages" },
@@ -117,6 +117,7 @@ const timeline = [
         "Resolved bugs and implemented new features.",
         "Optimized and debugged existing codebases, enhancing functionality, performance, and maintainability.",
         "Designed UI/UX workflows for new applications.",
+        "Led front-end design for new products, translating business requirements into modern, responsive user interfaces",
         "Developed and managed SQL Server databases.",
         "Assisted in developing and deploying chatbots.",
       ],
