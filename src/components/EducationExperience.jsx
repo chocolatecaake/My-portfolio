@@ -99,7 +99,7 @@ const timeline = [
     icon: <Briefcase />,
     details: {
       company: "Beraten Software",
-      duration: "Feb 2025-Apr 2026",
+      duration: "Feb 2025-Sep 2026",
       position: "Software Engineer",
       badges: [
         { label: "JavaScript", category: "Languages" },
