@@ -3,11 +3,14 @@ import {
   Instagram,
   LucidePanelRightOpen,
   Figma,
+  Dribbble,
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import travelSite from "../assets/imgs/projectPics/travelSite.png";
 import communitySite from "../assets/imgs/projectPics/communitySite.png";
 import janSite from "../assets/imgs/projectPics/janSite.png";
+import eduSite from "../assets/imgs/projectPics/eduSite.png";
+import realEstateSite from "../assets/imgs/projectPics/realEstateSite.png";
 
 const badgeColors = {
   WebDev: "#00FFF6",
@@ -19,9 +22,34 @@ const badgeColors = {
 
 const projects = [
   {
+    title: "Education Website",
+    img: eduSite,
+    drib: "https://dribbble.com/shots/27755289-Education-Website-Design",
+    figma:
+      "https://www.figma.com/design/nJfPRYF40JiArt6lp5F1A6/Legacy-website?node-id=0-1&p=f&t=zeUlpAXKgWrNHhT6-0",
+    description:
+      "A vibrant and playful education landing page for a communication coaching program focused on public speaking, confidence, articulation, and self-expression.",
+    badges: [{ label: "Figma", category: "WebDev" }],
+  },
+  {
+    title: "Travel Site",
+    description:
+      "A modern landing page designed for a travel site, inspired by minimal and eye-catching visuals",
+    link: "kalm",
+    drib: "https://dribbble.com/shots/27213660-Tropical-Travel-Guide-Website",
+    img: travelSite,
+    externalLink: "https://travelsrilanka.vercel.app/",
+    badges: [
+      { label: "Figma", category: "WebDev" },
+      { label: "ReactJS", category: "WebDev" },
+      { label: "TailwindCSS", category: "WebDev" },
+    ],
+  },
+  {
     title: "JAN",
     slug: "jan",
     img: janSite,
+    drib: "https://dribbble.com/shots/27167248-Minimal-Skincare-E-Commerce-Website-Design",
     figma:
       "https://www.figma.com/design/mwiP3znj8HPL7oW0ufmOR9/E-Commerce-website?node-id=3-648&t=KZNWgRJ823Xts7WS-1",
     description:
@@ -32,26 +60,22 @@ const projects = [
     ],
   },
   {
+    title: "Real Estate Site",
+    description:
+      "A modern real estate web experience focused on simplicity, clarity, and premium aesthetics.",
+    drib: "https://dribbble.com/shots/27297785-Modern-Real-Estate-Platform-Design",
+    img: realEstateSite,
+    badges: [{ label: "Figma", category: "WebDev" }],
+  },
+  {
     title: "Community Portal ",
     img: communitySite,
+    drib: "https://dribbble.com/shots/27132326-Community-Platform-Landing-Page",
     description:
       "The landing page for a website to connect businesses and individuals in a community.",
     slug: "landingDesign",
     link: "kalm",
     badges: [{ label: "Figma", category: "WebDev" }],
-  },
-  {
-    title: "Travel Site",
-    description:
-      "A modern landing page designed for a travel site, inspired by minimal and eye-catching visuals",
-    link: "kalm",
-    img: travelSite,
-    externalLink: "https://travelsrilanka.vercel.app/",
-    badges: [
-      { label: "Figma", category: "WebDev" },
-      { label: "ReactJS", category: "WebDev" },
-      { label: "TailwindCSS", category: "WebDev" },
-    ],
   },
   {
     title: "KALM.",
@@ -153,6 +177,15 @@ export const Projects = () => {
                         onClick={(e) => e.stopPropagation()}
                       >
                         <Figma />
+                      </a>
+                    )}
+                    {project.drib && (
+                      <a
+                        href={project.drib}
+                        target="_blank"
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        <Dribbble />
                       </a>
                     )}
                   </div>

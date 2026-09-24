@@ -1,4 +1,4 @@
-import { Github, Linkedin } from "lucide-react";
+import { Github, Linkedin, Dribbble } from "lucide-react";
 import { useState, useRef } from "react";
 import emailjs from "@emailjs/browser";
 import code from "../assets/imgs/code.png";
@@ -43,7 +43,7 @@ export const ContactMe = () => {
           to_email: "jameelahafi@gmail.com",
           message: `Message from: ${form.name} <${form.email}>\n\n${form.message}`,
         },
-        "VkOltFMV6wruEUYUe"
+        "VkOltFMV6wruEUYUe",
       )
       .then(
         () => {
@@ -60,7 +60,7 @@ export const ContactMe = () => {
           setLoading(false);
           alert("Failed to send email");
           console.log(error);
-        }
+        },
       );
   };
 
@@ -104,6 +104,14 @@ export const ContactMe = () => {
                 className="p-2 rounded-md bg-tertiary-light"
               >
                 <Linkedin />
+              </a>
+              <a
+                href="https://dribbble.com/jameela-hafi"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2 rounded-md bg-tertiary-light"
+              >
+                <Dribbble />
               </a>
             </div>
             <img
