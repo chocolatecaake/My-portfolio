@@ -208,6 +208,15 @@ export const Projects = () => {
                 </div>
 
                 <div className="text-left">{project.description}</div>
+                {project.externalLink && (
+                  <a
+                    className="primary-button-2 w-fit d-flex ml-auto"
+                    href={project.externalLink}
+                    target="_blank"
+                  >
+                    See Site
+                  </a>
+                )}
               </div>
             );
             if (project.externalLink) {
