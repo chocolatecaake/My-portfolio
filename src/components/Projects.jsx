@@ -25,11 +25,19 @@ const projects = [
     title: "Education Website",
     img: eduSite,
     drib: "https://dribbble.com/shots/27755289-Education-Website-Design",
+    status: "(In Progress)",
+    externalLink: "https://legacy-green-chi.vercel.app/",
     figma:
       "https://www.figma.com/design/nJfPRYF40JiArt6lp5F1A6/Legacy-website?node-id=0-1&p=f&t=zeUlpAXKgWrNHhT6-0",
     description:
       "A vibrant and playful education landing page for a communication coaching program focused on public speaking, confidence, articulation, and self-expression.",
-    badges: [{ label: "Figma", category: "WebDev" }],
+    badges: [
+      { label: "Figma", category: "WebDev" },
+      { label: "NextJS", category: "WebDev" },
+      { label: "TypeScript", category: "WebDev" },
+      { label: "React", category: "WebDev" },
+      { label: "TailwindCSS", category: "WebDev" },
+    ],
   },
   {
     title: "Travel Site",
@@ -210,11 +218,11 @@ export const Projects = () => {
                 <div className="text-left">{project.description}</div>
                 {project.externalLink && (
                   <a
-                    className="primary-button-2 w-fit d-flex ml-auto"
+                    className="primary-button-2 w-fit d-flex mt-auto ml-auto"
                     href={project.externalLink}
                     target="_blank"
                   >
-                    See Site
+                    See Site {project.status ? project.status : ""}
                   </a>
                 )}
               </div>
