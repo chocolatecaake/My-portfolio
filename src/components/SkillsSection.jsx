@@ -10,7 +10,16 @@ const skills = [
   },
   {
     category: "Web Development",
-    items: ["HTML", "CSS", "Bootstrap", "ReactJS", "ASP.NET Core", "REST APIs"],
+    items: [
+      "HTML",
+      "CSS",
+      "Bootstrap",
+      "ReactJS",
+      "NextJS",
+      "TypeScript",
+      "ASP.NET Core",
+      "REST APIs",
+    ],
     icon: <AppWindow />,
     color: "#00FFF6",
   },
@@ -42,7 +51,7 @@ const skills = [
   },
   {
     category: "Tools & Frameworks",
-    items: ["Git", "Figma", "Jira"],
+    items: ["Git", "Figma", "Canva", "Jira"],
     icon: <Hammer />,
     color: "#D06AFF",
   },
