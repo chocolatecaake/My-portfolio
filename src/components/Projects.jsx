@@ -28,7 +28,7 @@ const projects = [
     status: "(In Progress)",
     externalLink: "https://legacy-green-chi.vercel.app/",
     figma:
-      "https://www.figma.com/design/nJfPRYF40JiArt6lp5F1A6/Legacy-website?node-id=0-1&p=f&t=zeUlpAXKgWrNHhT6-0",
+      "https://www.figma.com/design/nJfPRYF40JiArt6lp5F1A6/Legacy-website?node-id=0-1&t=eHtFZTCg5loijTBF-1",
     description:
       "A vibrant and playful education landing page for a communication coaching program focused on public speaking, confidence, articulation, and self-expression.",
     badges: [
